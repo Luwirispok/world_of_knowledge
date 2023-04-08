@@ -30,13 +30,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
+List<String> planetAssets = [
+  'images/planets/1.svg',
+  'images/planets/2.svg',
+  'images/planets/3.svg',
+  'images/planets/4.svg',
+  'images/planets/5.svg',
+  'images/planets/6.svg',
+  'images/planets/7.svg',
+  'images/planets/8.svg',
+];
+
 class MyWidget extends StatelessWidget {
   const MyWidget({super.key});
 
   Widget _buildItemList(BuildContext context, int index) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.15,
-      child: const CircleAvatar(),
+      // width: MediaQuery.of(context).size.width * 0.2,
+      child: GestureDetector(
+        onTap: () {
+        },
+        child: SvgPicture.asset(planetAssets[index], width: 300,),
+      ),
     );
   }
 
@@ -46,16 +61,17 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.8,
             child: ScrollSnapList(
               itemBuilder: _buildItemList,
-              itemCount: 5,
+              itemCount: planetAssets.length,
               dynamicItemSize: true,
-              itemSize: 120,
+              itemSize: 300,
               onItemFocus: funs,
             ),
           ),
