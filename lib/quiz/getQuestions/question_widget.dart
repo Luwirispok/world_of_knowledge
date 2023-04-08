@@ -16,20 +16,27 @@ class QuestionWidget extends StatelessWidget {
   final int score;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: AppColors.grey,
+    return Container(
+      width: 300,
+      height: 350,
+      decoration: BoxDecoration(
+          color: AppColors.blue, borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.all(9.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Вопрос',
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.white,
-              ),
+            Row(
+              children: [
+                Text(
+                  'Вопрос',
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               width: 10,
@@ -38,16 +45,21 @@ class QuestionWidget extends StatelessWidget {
               '${indexAction + 1}/$totalQuestions',
               style: TextStyle(
                 fontSize: 17,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
             Spacer(),
-            Text(
-              '${question}',
-              style: TextStyle(
-                  fontSize: 27,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '${question}',
+                  style: TextStyle(
+                      fontSize: 27,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
             Spacer(),
             Row(
@@ -55,10 +67,10 @@ class QuestionWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  'Верно: ${score}',
+                  'Верных ответов: ${score}',
                   style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+                    fontSize: 15,
+                    color: Colors.black,
                   ),
                 ),
               ],

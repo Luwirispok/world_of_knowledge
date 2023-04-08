@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:world_of_knowledge/quiz/getQuestions/main_widget.dart';
+import 'package:world_of_knowledge/quiz/models/model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +27,31 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MainWidget(),
+      home: MainWidget(
+        name: 'man_1',
+        data: [
+          QuizQuestion(
+            title: 'Сколько будет \n1 + 1',
+            options: {
+              '>1 года': false,
+              '<1 года': false,
+              '<2 лет': false,
+              '4 лет': false,
+              '4+ лет': true,
+            },
+          ),
+          QuizQuestion(
+            title: 'Сколько будет \n 3 - 1?',
+            options: {
+              '1': false,
+              '2': true,
+              '3': false,
+              '4': false,
+              '5 и более вопросов': false,
+            },
+          ),
+        ],
+      ),
     );
   }
 }
