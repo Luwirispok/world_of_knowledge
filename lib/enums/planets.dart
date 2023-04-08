@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:world_of_knowledge/data/provider/model.dart';
+import 'package:world_of_knowledge/quiz/models/model.dart';
 
 enum PlanetsEnum {
   mathPlanet,
@@ -9,20 +12,21 @@ enum PlanetsEnum {
 }
 
 List<String> _planetAssets = [
+  'images/planets/0.svg',
   'images/planets/1.svg',
   'images/planets/2.svg',
   'images/planets/3.svg',
   'images/planets/4.svg',
-  'images/planets/5.svg',
 ];
 
 List<String> _backgroundAsset = [
+  'images/background/cosmos_0.png',
   'images/background/cosmos_1.png',
   'images/background/cosmos_2.png',
   'images/background/cosmos_3.png',
   'images/background/cosmos_4.png',
-  'images/background/cosmos_5.png',
 ];
+
 extension PlanetEnumExtension on PlanetsEnum {
   String get imageAssetPlanet {
     switch (this) {
@@ -36,8 +40,6 @@ extension PlanetEnumExtension on PlanetsEnum {
         return _planetAssets[3];
       case PlanetsEnum.drawingPlanet:
         return _planetAssets[4];
-      default:
-        throw Exception('Нам пизда!');
     }
   }
 
@@ -53,8 +55,6 @@ extension PlanetEnumExtension on PlanetsEnum {
         return 'Музыка';
       case PlanetsEnum.drawingPlanet:
         return 'Рисование';
-      default:
-        throw Exception('Нам пизда!');
     }
   }
 
@@ -70,8 +70,6 @@ extension PlanetEnumExtension on PlanetsEnum {
         return _backgroundAsset[3];
       case PlanetsEnum.drawingPlanet:
         return _backgroundAsset[4];
-      default:
-        throw Exception('Нам пизда!');
     }
   }
 
@@ -79,14 +77,17 @@ extension PlanetEnumExtension on PlanetsEnum {
     switch (this) {
       case PlanetsEnum.mathPlanet:
         return () {
+          _getProviderSettings(context, this);
           Navigator.pushNamed(context, '/math_screen');
         };
       case PlanetsEnum.grammarPlanet:
         return () {
+          _getProviderSettings(context, this);
           Navigator.pushNamed(context, '/grammar_screen');
         };
       case PlanetsEnum.readingPlanet:
         return () {
+          _getProviderSettings(context, this);
           Navigator.pushNamed(context, '/reading_screen');
         };
       // case PlanetsEnum.musicPlanet:
@@ -114,7 +115,10 @@ void _inTheWorks(BuildContext context) {
         content: const Text('Раздел находится в разработке'),
         actions: <Widget>[
           TextButton(
-            child: const Text('Хорошо', style: TextStyle(fontSize: 20),),
+            child: const Text(
+              'Хорошо',
+              style: TextStyle(fontSize: 20),
+            ),
             onPressed: () {
               Navigator.of(dialogContext).pop(); // Dismiss alert dialog
             },
@@ -125,3 +129,26 @@ void _inTheWorks(BuildContext context) {
   );
 }
 
+void _getProviderSettings(
+  BuildContext context,
+  PlanetsEnum planetsEnum,
+) {
+  context.read<DataModelProvider>().pathBackGroundImage =
+      planetsEnum.index.toString();
+  context.read<DataModelProvider>().planetPathPhoto =
+      planetsEnum.index.toString();
+
+  context.read<DataModelProvider>().personalTypeName =
+      planetsEnum.index.toString();
+  context.read<DataModelProvider>().data = [
+    QuizQuestion(
+      title: 'Какое число идет после 2?',
+      options: {
+        '1': false,
+        '3': true,
+        '2': false,
+        '5': false,
+      },
+    ),
+  ];
+}

@@ -20,7 +20,7 @@ class QuestionWidget extends StatelessWidget {
       width: 300,
       height: 350,
       decoration: BoxDecoration(
-          color: AppColors.blue, borderRadius: BorderRadius.circular(10)),
+          color: AppColors.grey, borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.all(9.0),
         child: Column(
@@ -50,21 +50,24 @@ class QuestionWidget extends StatelessWidget {
             ),
             Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  '${question}',
-                  style: TextStyle(
-                      fontSize: 27,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
+                SizedBox(
+                  width: 30,
+                ),
+                Flexible(
+                  child: Text(
+                    '${question}',
+                    style: TextStyle(
+                        fontSize: 27,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
             Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   'Верных ответов: ${score}',

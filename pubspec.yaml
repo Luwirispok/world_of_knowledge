@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  provider: ^6.0.5
   flutter_svg: ^2.0.4
   cupertino_icons: ^1.0.5
   scroll_snap_list: ^0.9.1

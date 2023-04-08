@@ -17,17 +17,20 @@ class CustomCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Card(
-        color: color,
-        child: ListTile(
-          title: Text(
-            textDirection: TextDirection.ltr,
-            option,
-            style: TextStyle(
-              fontSize: 20,
-              color: AppColors.white,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 25),
+        child: Card(
+          color: color,
+          child: ListTile(
+            title: Text(
+              textDirection: TextDirection.ltr,
+              option,
+              style: TextStyle(
+                fontSize: 25,
+                color: AppColors.white,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
         ),
       ),

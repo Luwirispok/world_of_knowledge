@@ -15,14 +15,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Widget _buildItemList(BuildContext context, int index) {
-    return GestureDetector(
-      onTap: () {
-        PlanetsEnum.values[index].onTapPlanet(context).call();
-      },
-      child: SvgPicture.asset(
-        PlanetsEnum.values[index].imageAssetPlanet,
-        width: 300,
-      ),
+    return SvgPicture.asset(
+      PlanetsEnum.values[index].imageAssetPlanet,
+      width: 300,
     );
   }
 
@@ -81,7 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class HomeScreenButtonsWidget extends StatelessWidget {
-  const HomeScreenButtonsWidget({Key? key, required this.planetsEnum}) : super(key: key);
+  const HomeScreenButtonsWidget({Key? key, required this.planetsEnum})
+      : super(key: key);
 
   final PlanetsEnum planetsEnum;
 
