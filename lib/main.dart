@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
-import 'package:world_of_knowledge/quiz/getQuestions/main_widget.dart';
-import 'package:world_of_knowledge/quiz/models/model.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:world_of_knowledge/screens/drawing_screen.dart';
+import 'package:world_of_knowledge/screens/grammar_screen.dart';
+import 'package:world_of_knowledge/screens/home_screen.dart';
+import 'package:world_of_knowledge/screens/math_screen.dart';
+import 'package:world_of_knowledge/screens/music_screen.dart';
+import 'package:world_of_knowledge/screens/reading_screen.dart';
+import 'package:world_of_knowledge/screens/setting_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,84 +28,23 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          background: Colors.black38,
+        ),
+        textTheme: GoogleFonts.bebasNeueTextTheme(),
         useMaterial3: true,
       ),
-      home: MainWidget(
-        name: 'man_1',
-        data: [
-          QuizQuestion(
-            title: 'Сколько будет \n1 + 1',
-            options: {
-              '>1 года': false,
-              '<1 года': false,
-              '<2 лет': false,
-              '4 лет': false,
-              '4+ лет': true,
-            },
-          ),
-          QuizQuestion(
-            title: 'Сколько будет \n 3 - 1?',
-            options: {
-              '1': false,
-              '2': true,
-              '3': false,
-              '4': false,
-              '5 и более вопросов': false,
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-List<String> planetAssets = [
-  'images/planets/1.svg',
-  'images/planets/2.svg',
-  'images/planets/3.svg',
-  'images/planets/4.svg',
-  'images/planets/5.svg',
-  'images/planets/6.svg',
-  'images/planets/7.svg',
-  'images/planets/8.svg',
-];
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  Widget _buildItemList(BuildContext context, int index) {
-    return Container(
-      // width: MediaQuery.of(context).size.width * 0.2,
-      child: GestureDetector(
-        onTap: () {},
-        child: SvgPicture.asset(
-          planetAssets[index],
-          width: 300,
-        ),
-      ),
-    );
-  }
-
-  void funs(int int) {
-    print("Hui: $int");
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.8,
-          child: ScrollSnapList(
-            itemBuilder: _buildItemList,
-            itemCount: planetAssets.length,
-            dynamicItemSize: true,
-            itemSize: 300,
-            onItemFocus: funs,
-          ),
-        ),
-      ),
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/math_screen': (context) => const MathScreen(),
+        '/grammar_screen': (context) => const GrammarScreen(),
+        '/reading_screen': (context) => const ReadingScreen(),
+        '/drawing_screen': (context) => const DrawingScreen(),
+        '/music_screen': (context) => const MusicScreen(),
+        '/setting_screen': (context) => const SettingScreen(),
+      },
+      initialRoute: '/',
     );
   }
 }
