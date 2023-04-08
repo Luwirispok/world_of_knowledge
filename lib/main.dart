@@ -11,6 +11,7 @@ import 'package:world_of_knowledge/screens/math_screen.dart';
 import 'package:world_of_knowledge/screens/music_screen.dart';
 import 'package:world_of_knowledge/screens/reading_screen.dart';
 import 'package:world_of_knowledge/screens/setting_screen.dart';
+import 'package:world_of_knowledge/screens/story/strory_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,12 +46,14 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => const HomeScreen(),
-          '/math_screen': (context) => MainWidget(),
-          '/grammar_screen': (context) => MainWidget(),
-          '/reading_screen': (context) => MainWidget(),
+          '/math_screen': (context) => const MainWidget(),
+          '/grammar_screen': (context) => const MainWidget(),
+          '/reading_screen': (context) => const ReadingScreen(),
           '/drawing_screen': (context) => const DrawingScreen(),
           '/music_screen': (context) => const MusicScreen(),
           '/setting_screen': (context) => const SettingScreen(),
+          '/story_screen': (context) => const StoryScreen(),
+
         },
         initialRoute: '/',
       ),

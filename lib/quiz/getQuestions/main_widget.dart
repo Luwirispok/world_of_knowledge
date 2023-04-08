@@ -12,7 +12,7 @@ import 'package:world_of_knowledge/quiz/getQuestions/question_widget.dart';
 import 'package:world_of_knowledge/quiz/models/model.dart';
 
 class MainWidget extends StatefulWidget {
-  MainWidget({super.key});
+  const MainWidget({super.key});
 
   @override
   State<MainWidget> createState() => _MainWidgetState();
