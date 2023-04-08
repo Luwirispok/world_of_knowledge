@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 void main() async {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MyWidget(),
+      home: const MyWidget(),
     );
   }
 }
@@ -33,16 +34,10 @@ class MyWidget extends StatelessWidget {
   const MyWidget({super.key});
 
   Widget _buildItemList(BuildContext context, int index) {
-    return InkWell(
-        onTap: () {
-          print(index);
-        },
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.15,
-          child: CircleAvatar(
-            backgroundColor: Colors.red,
-          ),
-        ));
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.15,
+      child: const CircleAvatar(),
+    );
   }
 
   void funs(int int) {
@@ -58,7 +53,7 @@ class MyWidget extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.6,
             child: ScrollSnapList(
               itemBuilder: _buildItemList,
-              itemCount: 10,
+              itemCount: 5,
               dynamicItemSize: true,
               itemSize: 120,
               onItemFocus: funs,
@@ -69,5 +64,3 @@ class MyWidget extends StatelessWidget {
     );
   }
 }
-
-_buildItemList(BuildContext context, int index) {}
