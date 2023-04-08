@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
+import 'package:world_of_knowledge/quiz/getQuestions/main_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyWidget(),
+      home: MainWidget(),
     );
   }
 }
@@ -47,17 +48,15 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            child: ScrollSnapList(
-              itemBuilder: _buildItemList,
-              itemCount: 5,
-              dynamicItemSize: true,
-              itemSize: 120,
-              onItemFocus: funs,
-            ),
+      body: Center(
+        child: Container(
+          height: MediaQuery.of(context).size.height * 0.6,
+          child: ScrollSnapList(
+            itemBuilder: _buildItemList,
+            itemCount: 5,
+            dynamicItemSize: true,
+            itemSize: 120,
+            onItemFocus: funs,
           ),
         ),
       ),
