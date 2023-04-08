@@ -2,6 +2,11 @@
 class Assets {
   Assets._();
 
+  static const String backgroundCosmos1 = 'images/background/cosmos_1.png';
+  static const String backgroundCosmos2 = 'images/background/cosmos_2.png';
+  static const String backgroundCosmos3 = 'images/background/cosmos_3.png';
+  static const String backgroundCosmos4 = 'images/background/cosmos_4.png';
+  static const String backgroundCosmos5 = 'images/background/cosmos_5.png';
   static const String planets1 = 'images/planets/1.svg';
   static const String planets2 = 'images/planets/2.svg';
   static const String planets3 = 'images/planets/3.svg';
