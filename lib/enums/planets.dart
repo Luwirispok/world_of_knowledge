@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+
 enum PlanetsEnum {
-  planet1,
-  planet2,
-  planet3,
-  planet4,
-  planet5,
+  mathPlanet,
+  grammarPlanet,
+  readingPlanet,
+  musicPlanet,
+  drawingPlanet,
 }
 
 List<String> _planetAssets = [
@@ -24,16 +26,33 @@ List<String> _backgroundAsset = [
 extension PlanetEnumExtension on PlanetsEnum {
   String get imageAssetPlanet {
     switch (this) {
-      case PlanetsEnum.planet1:
+      case PlanetsEnum.mathPlanet:
         return _planetAssets[0];
-      case PlanetsEnum.planet2:
+      case PlanetsEnum.grammarPlanet:
         return _planetAssets[1];
-      case PlanetsEnum.planet3:
+      case PlanetsEnum.readingPlanet:
         return _planetAssets[2];
-      case PlanetsEnum.planet4:
+      case PlanetsEnum.musicPlanet:
         return _planetAssets[3];
-      case PlanetsEnum.planet5:
+      case PlanetsEnum.drawingPlanet:
         return _planetAssets[4];
+      default:
+        throw Exception('Нам пизда!');
+    }
+  }
+
+  String get name {
+    switch (this) {
+      case PlanetsEnum.mathPlanet:
+        return 'Математика';
+      case PlanetsEnum.grammarPlanet:
+        return 'Грамматика';
+      case PlanetsEnum.readingPlanet:
+        return 'Чтение';
+      case PlanetsEnum.musicPlanet:
+        return 'Музыка';
+      case PlanetsEnum.drawingPlanet:
+        return 'Рисование';
       default:
         throw Exception('Нам пизда!');
     }
@@ -41,36 +60,68 @@ extension PlanetEnumExtension on PlanetsEnum {
 
   String get backgroundAssetPlanet {
     switch (this) {
-      case PlanetsEnum.planet1:
+      case PlanetsEnum.mathPlanet:
         return _backgroundAsset[0];
-      case PlanetsEnum.planet2:
+      case PlanetsEnum.grammarPlanet:
         return _backgroundAsset[1];
-      case PlanetsEnum.planet3:
+      case PlanetsEnum.readingPlanet:
         return _backgroundAsset[2];
-      case PlanetsEnum.planet4:
+      case PlanetsEnum.musicPlanet:
         return _backgroundAsset[3];
-      case PlanetsEnum.planet5:
+      case PlanetsEnum.drawingPlanet:
         return _backgroundAsset[4];
       default:
         throw Exception('Нам пизда!');
     }
   }
 
-  Function get onTapPlanet {
+  VoidCallback onTapPlanet(BuildContext context) {
     switch (this) {
-      case PlanetsEnum.planet1:
-        return () {};
-      case PlanetsEnum.planet2:
-        return () {};
-      case PlanetsEnum.planet3:
-        return () {};
-      case PlanetsEnum.planet4:
-        return () {};
-      case PlanetsEnum.planet5:
-        return () {};
+      case PlanetsEnum.mathPlanet:
+        return () {
+          Navigator.pushNamed(context, '/math_screen');
+        };
+      case PlanetsEnum.grammarPlanet:
+        return () {
+          Navigator.pushNamed(context, '/grammar_screen');
+        };
+      case PlanetsEnum.readingPlanet:
+        return () {
+          Navigator.pushNamed(context, '/reading_screen');
+        };
+      // case PlanetsEnum.musicPlanet:
+      //   return () {
+      //     Navigator.pushNamed(context, '/music_screen');
+      //   };
+      // case PlanetsEnum.drawingPlanet:
+      //   return () {
+      //     Navigator.pushNamed(context, '/drawing_screen');
+      //   };
       default:
-        throw Exception('Нам пизда!');
+        _inTheWorks(context);
+        return () {};
     }
   }
+}
+
+void _inTheWorks(BuildContext context) {
+  showDialog<void>(
+    context: context,
+    builder: (BuildContext dialogContext) {
+      return AlertDialog(
+        backgroundColor: Colors.white.withOpacity(0.8),
+        title: const Text('Упс...'),
+        content: const Text('Раздел находится в разработке'),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Хорошо', style: TextStyle(fontSize: 20),),
+            onPressed: () {
+              Navigator.of(dialogContext).pop(); // Dismiss alert dialog
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
 

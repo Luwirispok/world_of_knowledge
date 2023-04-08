@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
-import 'package:world_of_knowledge/enums/planets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:world_of_knowledge/screens/drawing_screen.dart';
+import 'package:world_of_knowledge/screens/grammar_screen.dart';
+import 'package:world_of_knowledge/screens/home_screen.dart';
+import 'package:world_of_knowledge/screens/math_screen.dart';
+import 'package:world_of_knowledge/screens/music_screen.dart';
+import 'package:world_of_knowledge/screens/reading_screen.dart';
+import 'package:world_of_knowledge/screens/setting_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,75 +32,19 @@ class MyApp extends StatelessWidget {
           seedColor: Colors.deepPurple,
           background: Colors.black38,
         ),
+        textTheme: GoogleFonts.bebasNeueTextTheme(),
         useMaterial3: true,
       ),
-      home: const MyWidget(),
-    );
-  }
-}
-
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  Widget _buildItemList(BuildContext context, int index) {
-    return GestureDetector(
-      onTap: () {
-        PlanetsEnum.values[index].onTapPlanet.call();
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/math_screen': (context) => const MathScreen(),
+        '/grammar_screen': (context) => const GrammarScreen(),
+        '/reading_screen': (context) => const ReadingScreen(),
+        '/drawing_screen': (context) => const DrawingScreen(),
+        '/music_screen': (context) => const MusicScreen(),
+        '/setting_screen': (context) => const SettingScreen(),
       },
-      child: SvgPicture.asset(
-        PlanetsEnum.values[index].imageAssetPlanet,
-        width: 300,
-      ),
-    );
-  }
-
-  void onItemFocus(int int) {
-    print("Planet: $int");
-    backIndex = int;
-    setState(() {});
-  }
-
-  int backIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            AnimatedSwitcher(
-              duration: const Duration(milliseconds: 600),
-              child: SizedBox(
-                width: double.infinity,
-                height: double.infinity,
-                key: UniqueKey(),
-                child: Image.asset(
-                  PlanetsEnum.values[backIndex].backgroundAssetPlanet,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Center(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.6,
-                child: ScrollSnapList(
-                  itemBuilder: _buildItemList,
-                  itemCount: PlanetsEnum.values.length,
-                  dynamicItemSize: true,
-                  itemSize: 300,
-                  onItemFocus: onItemFocus,
-                ),
-              ),
-            ),
-
-          ],
-        ),
-      ),
+      initialRoute: '/',
     );
   }
 }

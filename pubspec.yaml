@@ -14,6 +14,8 @@ dependencies:
   flutter_svg: ^2.0.4
   cupertino_icons: ^1.0.5
   scroll_snap_list: ^0.9.1
+  google_fonts: ^4.0.3
+  flutter_scale_tap: ^1.0.5
 
 dev_dependencies:
   flutter_test:
@@ -28,6 +30,7 @@ flutter:
   assets:
     - images/planets/
     - images/background/
+    - images/buttons/
   # To add assets to your application, add an assets section, like this:
 
 
