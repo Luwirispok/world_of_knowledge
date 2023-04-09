@@ -15,6 +15,7 @@ class WelcomeScreen extends StatelessWidget {
               child: SvgPicture.asset(
             Assets.first_sc,
             width: 60,
+                fit: BoxFit.cover,
           )),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

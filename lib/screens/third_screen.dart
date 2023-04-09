@@ -23,6 +23,7 @@ class ThirdScreen extends StatelessWidget {
             child: SvgPicture.asset(
           Assets.second_sc,
           width: 60,
+              fit: BoxFit.cover,
         )),
         Column(children: [
           SizedBox(

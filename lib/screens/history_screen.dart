@@ -42,6 +42,7 @@ class HistoryScreen extends StatelessWidget {
             child: SvgPicture.asset(
           Assets.second_sc,
           width: 60,
+              fit: BoxFit.cover,
         )),
         Center(
           child: Padding(
@@ -71,8 +72,8 @@ class HistoryScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 0,
-          right: 0,
+          bottom: 10,
+          right: 10,
           child: ButtonWidget(
             onTap: () async {
               _setFirstSetting(context);
@@ -89,7 +90,7 @@ class HistoryScreen extends StatelessWidget {
         ),
         Positioned(
           top: 15,
-          left: 5,
+          left: 15,
           child: ButtonWidget(
             onTap: () async {
               Navigator.of(context).pop();
