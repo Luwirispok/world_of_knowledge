@@ -2,28 +2,56 @@
 class Assets {
   Assets._();
 
+  static const String backgroundCosmos0 = 'images/background/cosmos_0.png';
   static const String backgroundCosmos1 = 'images/background/cosmos_1.png';
   static const String backgroundCosmos2 = 'images/background/cosmos_2.png';
   static const String backgroundCosmos3 = 'images/background/cosmos_3.png';
   static const String backgroundCosmos4 = 'images/background/cosmos_4.png';
-  static const String backgroundCosmos5 = 'images/background/cosmos_5.png';
   static const String buttonsCancelButton = 'images/buttons/cancel_button.svg';
-  static const String buttonsMusicOffButton =
-      'images/buttons/music_off_button.svg';
-  static const String buttonsMusicOnButton =
-      'images/buttons/music_on_button.svg';
+  static const String buttonsMusicOffButton = 'images/buttons/music_off_button.svg';
+  static const String buttonsMusicOnButton = 'images/buttons/music_on_button.svg';
   static const String buttonsResetButton = 'images/buttons/reset_button.svg';
-  static const String buttonsSettingButton =
-      'images/buttons/setting_button.svg';
+  static const String buttonsSettingButton = 'images/buttons/setting_button.svg';
   static const String buttonsStartButton = 'images/buttons/start_button.svg';
+  static const String coverStory0 = 'images/story/cover/story_0.jpg';
+  static const String coverStory1 = 'images/story/cover/story_1.jpg';
+  static const String coverStory2 = 'images/story/cover/story_2.jpg';
+  static const String coverStory3 = 'images/story/cover/story_3.jpg';
+  static const String coverStory4 = 'images/story/cover/story_4.jpg';
+  static const String imageImage01 = 'images/story/image/image_0_1.jpg';
+  static const String imageImage010 = 'images/story/image/image_0_10.jpg';
+  static const String imageImage011 = 'images/story/image/image_0_11.jpg';
+  static const String imageImage012 = 'images/story/image/image_0_12.jpg';
+  static const String imageImage02 = 'images/story/image/image_0_2.jpg';
+  static const String imageImage03 = 'images/story/image/image_0_3.jpg';
+  static const String imageImage04 = 'images/story/image/image_0_4.jpg';
+  static const String imageImage05 = 'images/story/image/image_0_5.jpg';
+  static const String imageImage06 = 'images/story/image/image_0_6.jpg';
+  static const String imageImage07 = 'images/story/image/image_0_7.jpg';
+  static const String imageImage08 = 'images/story/image/image_0_8.jpg';
+  static const String imageImage09 = 'images/story/image/image_0_9.jpg';
+  static const String imageImage21 = 'images/story/image/image_2_1.jpg';
+  static const String imageImage210 = 'images/story/image/image_2_10.jpg';
+  static const String imageImage22 = 'images/story/image/image_2_2.jpg';
+  static const String imageImage23 = 'images/story/image/image_2_3.jpg';
+  static const String imageImage24 = 'images/story/image/image_2_4.jpg';
+  static const String imageImage25 = 'images/story/image/image_2_5.jpg';
+  static const String imageImage26 = 'images/story/image/image_2_6.jpg';
+  static const String imageImage27 = 'images/story/image/image_2_7.jpg';
+  static const String imageImage28 = 'images/story/image/image_2_8.jpg';
+  static const String imageImage29 = 'images/story/image/image_2_9.jpg';
+  static const String imageImage31 = 'images/story/image/image_3_1.jpg';
+  static const String personsMan0 = 'images/planets/persons/man_0.svg';
+  static const String personsMan1 = 'images/planets/persons/man_1.svg';
+  static const String personsMan2 = 'images/planets/persons/man_2.svg';
+  static const String personsWoman0 = 'images/planets/persons/woman_0.svg';
+  static const String personsWoman1 = 'images/planets/persons/woman_1.svg';
+  static const String personsWoman2 = 'images/planets/persons/woman_2.svg';
+  static const String planets0 = 'images/planets/0.svg';
   static const String planets1 = 'images/planets/1.svg';
   static const String planets2 = 'images/planets/2.svg';
   static const String planets3 = 'images/planets/3.svg';
   static const String planets4 = 'images/planets/4.svg';
-  static const String planets5 = 'images/planets/5.svg';
-  static const String planets6 = 'images/planets/6.svg';
-  static const String planets7 = 'images/planets/7.svg';
-  static const String planets8 = 'images/planets/8.svg';
   static const String first_sc = 'images/planets/first_screen.svg';
   static const String second_sc = 'images/planets/second_screen.svg';
   static const String person_man_0 = 'images/planets/persons/man_0.svg';

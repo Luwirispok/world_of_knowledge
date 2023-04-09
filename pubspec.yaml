@@ -33,6 +33,8 @@ flutter:
     - images/background/
     - images/buttons/
     - images/planets/persons/
+    - images/story/cover/
+    - images/story/image/
   # To add assets to your application, add an assets section, like this:
 
 

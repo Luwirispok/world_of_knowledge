@@ -41,7 +41,7 @@ class ReadingScreen extends StatelessWidget {
                   crossAxisSpacing: 30,
                   mainAxisSpacing: 30,
                 ),
-                itemCount: 5,
+                itemCount: _listStoryModel.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ScaleTap(
                     onPressed: () {

@@ -9,19 +9,15 @@ import 'package:world_of_knowledge/models/story_model.dart';
 
 import 'package:world_of_knowledge/widgets/button.dart';
 
-class StoryScreen extends StatefulWidget {
+class StoryScreen extends StatelessWidget {
   StoryModel? storyMod;
   StoryScreen({
     required this.storyMod,
     Key? key,
   }) : super(key: key);
 
-  @override
-  State<StoryScreen> createState() => _StoryScreenState();
-}
+  get storyModel => storyMod;
 
-class _StoryScreenState extends State<StoryScreen> {
-  get storyModel => widget.storyMod;
   final PlanetsEnum _planetsEnum = PlanetsEnum.readingPlanet;
 
   @override
