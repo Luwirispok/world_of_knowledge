@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:world_of_knowledge/data/provider/person_data_provider.dart';
 import 'package:world_of_knowledge/generated/assets.dart';
 import 'package:world_of_knowledge/widgets/button.dart';
 
@@ -73,10 +74,4 @@ class WhoAreUScreen extends StatelessWidget {
       ]),
     );
   }
-}
-
-class PersonDataProvider extends ChangeNotifier {
-  String? sex;
-  int? personIndex;
-  bool? setSettings;
 }

@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:world_of_knowledge/data/provider/data_transfer_provider.dart';
 import 'package:world_of_knowledge/data/provider/model.dart';
 import 'package:world_of_knowledge/quiz/models/model.dart';
 
@@ -78,6 +81,7 @@ extension PlanetEnumExtension on PlanetsEnum {
       case PlanetsEnum.mathPlanet:
         return () {
           _getProviderSettings(context, this);
+
           Navigator.pushNamed(context, '/math_screen');
         };
       case PlanetsEnum.grammarPlanet:
@@ -87,7 +91,12 @@ extension PlanetEnumExtension on PlanetsEnum {
         };
       case PlanetsEnum.readingPlanet:
         return () {
-          _getProviderSettings(context, this);
+          // _getProviderSettings(context, this);
+          // int value =
+          //     Random(0).nextInt(DataTransferProvider().listStoryModel.length);
+          // print(value);
+          // context.read<DataTransferProvider>().storyModel =
+          //     DataTransferProvider().listStoryModel[value];
           Navigator.pushNamed(context, '/reading_screen');
         };
       // case PlanetsEnum.musicPlanet:

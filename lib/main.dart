@@ -3,16 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:world_of_knowledge/data/provider/data_transfer_provider.dart';
 import 'package:world_of_knowledge/data/provider/model.dart';
+import 'package:world_of_knowledge/data/provider/person_data_provider.dart';
 import 'package:world_of_knowledge/quiz/getQuestions/main_widget.dart';
 import 'package:world_of_knowledge/screens/drawing_screen.dart';
-import 'package:world_of_knowledge/screens/grammar_screen.dart';
 import 'package:world_of_knowledge/screens/history_screen.dart';
 import 'package:world_of_knowledge/screens/home_screen.dart';
-import 'package:world_of_knowledge/screens/math_screen.dart';
 import 'package:world_of_knowledge/screens/music_screen.dart';
 import 'package:world_of_knowledge/screens/reading_screen.dart';
 import 'package:world_of_knowledge/screens/setting_screen.dart';
+import 'package:world_of_knowledge/screens/story_screen.dart';
 import 'package:world_of_knowledge/screens/third_screen.dart';
 import 'package:world_of_knowledge/screens/welcome_screen.dart';
 import 'package:world_of_knowledge/screens/who_are_u_screen.dart';
@@ -31,6 +32,7 @@ late final SharedPreferences sharedPreferences;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+////////////
 
   // This widget is the root of your application.
   @override
@@ -41,6 +43,8 @@ class MyApp extends StatelessWidget {
             create: (_) => DataModelProvider()),
         ChangeNotifierProvider<PersonDataProvider>(
             create: (_) => PersonDataProvider()),
+        ChangeNotifierProvider<DataTransferProvider>(
+            create: (_) => DataTransferProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -59,9 +63,15 @@ class MyApp extends StatelessWidget {
           '/third_screen': (context) => ThirdScreen(),
           '/history_screen': (context) => HistoryScreen(),
           '/home_screen': (context) => const HomeScreen(),
-          '/math_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
-          '/grammar_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
-          '/reading_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
+          '/math_screen': (context) =>
+              MainWidget(sharedPreferences: sharedPreferences),
+          '/grammar_screen': (context) =>
+              MainWidget(sharedPreferences: sharedPreferences),
+          '/reading_screen': (context) => ReadingScreen(
+                listStoryModel:
+                    context.read<DataTransferProvider>().listStoryModel,
+              ),
+          // '/reading_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
           '/drawing_screen': (context) => const DrawingScreen(),
           '/music_screen': (context) => const MusicScreen(),
           '/setting_screen': (context) => const SettingScreen(),
