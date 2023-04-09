@@ -89,7 +89,7 @@ class HomeScreenButtonsWidget extends StatelessWidget {
         Align(
           alignment: Alignment.topLeft,
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
             child: ButtonWidget(
               onTap: () {
                 SystemNavigator.pop();
@@ -119,7 +119,7 @@ class HomeScreenButtonsWidget extends StatelessWidget {
         Align(
           alignment: Alignment.topRight,
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
             child: ButtonWidget(
               onTap: () {
                 Navigator.pushNamed(context, '/setting_screen');

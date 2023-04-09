@@ -17,6 +17,9 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_scale_tap: ^1.0.5
 
+  # https://pub.dev/packages/markdown_viewer
+  markdown_viewer: ^0.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
