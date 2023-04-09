@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:world_of_knowledge/data/provider/model.dart';
 import 'package:world_of_knowledge/quiz/getQuestions/main_widget.dart';
 import 'package:world_of_knowledge/screens/drawing_screen.dart';
@@ -22,8 +23,11 @@ void main() async {
   SystemChrome.setPreferredOrientations(
     [DeviceOrientation.landscapeRight, DeviceOrientation.landscapeLeft],
   );
+  sharedPreferences = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
+
+late final SharedPreferences sharedPreferences;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -55,9 +59,9 @@ class MyApp extends StatelessWidget {
           '/third_screen': (context) => ThirdScreen(),
           '/history_screen': (context) => HistoryScreen(),
           '/home_screen': (context) => const HomeScreen(),
-          '/math_screen': (context) => MainWidget(),
-          '/grammar_screen': (context) => MainWidget(),
-          '/reading_screen': (context) => MainWidget(),
+          '/math_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
+          '/grammar_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
+          '/reading_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
           '/drawing_screen': (context) => const DrawingScreen(),
           '/music_screen': (context) => const MusicScreen(),
           '/setting_screen': (context) => const SettingScreen(),

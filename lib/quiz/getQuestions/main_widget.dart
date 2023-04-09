@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:world_of_knowledge/core/app_color.dart';
 import 'package:world_of_knowledge/data/provider/model.dart';
-
 import 'package:world_of_knowledge/quiz/getQuestions/custom_card.dart';
-import 'package:world_of_knowledge/quiz/getQuestions/float_action_button.dart';
 import 'package:world_of_knowledge/quiz/getQuestions/question_widget.dart';
 import 'package:world_of_knowledge/quiz/models/model.dart';
 
 class MainWidget extends StatefulWidget {
-  const MainWidget({super.key});
+  const MainWidget({super.key, required this.sharedPreferences});
 
+  final SharedPreferences sharedPreferences;
   @override
   State<MainWidget> createState() => _MainWidgetState();
 }
@@ -51,7 +48,7 @@ class _MainWidgetState extends State<MainWidget> {
   }
 
   void _getSharedPreferencesSettings() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = widget.sharedPreferences;
     bool? sex = prefs.getBool('sex');
     int? index = prefs.getInt('index');
     if (sex!) {
@@ -98,14 +95,15 @@ class _MainWidgetState extends State<MainWidget> {
           isAlreadySelected = false;
         });
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Пожалуйста выберите ответ'),
-          behavior: SnackBarBehavior.floating,
-          margin: EdgeInsets.symmetric(vertical: 20.0),
-        ));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Пожалуйста выберите ответ'),
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.symmetric(vertical: 20.0),
+          ),
+        );
       }
     }
-    ;
   }
 
   int index = 0;
