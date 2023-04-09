@@ -67,16 +67,19 @@ class MyApp extends StatelessWidget {
           '/home_screen': (context) => const HomeScreen(),
           '/math_screen': (context) =>
               MainWidget(sharedPreferences: sharedPreferences),
-          '/grammar_screen': (context) =>
-              MainWidget(sharedPreferences: sharedPreferences),
+          '/grammar_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
           '/reading_screen': (context) => ReadingScreen(
-                listStoryModel:
-                    context.read<DataTransferProvider>().listStoryModel,
+                listStoryModel: context.read<DataTransferProvider>().listStoryModel,
               ),
           // '/reading_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
           '/drawing_screen': (context) => const DrawingScreen(),
           '/music_screen': (context) => const MusicScreen(),
           '/setting_screen': (context) => const SettingScreen(),
+          '/story_screen': (context) {
+            final arguments = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
+
+            return StoryScreen(storyMod: arguments['story']);
+          }
         },
         initialRoute: '/',
       ),
