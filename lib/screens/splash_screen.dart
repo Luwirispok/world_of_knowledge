@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:world_of_knowledge/audio_player/music_player.dart';
 import 'package:world_of_knowledge/core/app_color.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     _chcekStatus();
     super.initState();
+    MusicPlayer.playMusic('audio/music_1.mp3');
   }
 
   _chcekStatus() async {
