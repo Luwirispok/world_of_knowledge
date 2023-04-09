@@ -23,17 +23,17 @@ class VideoScreen extends StatelessWidget {
     'images/video/video_5.png',
   ];
   List<String> urlVideo = [
-    'https://youtu.be/l8AGJ3L6Dgw',
-    'https://youtu.be/1PpDurCqRuU',
-    'https://youtu.be/ovYk09AtwKY',
+    'https://youtu.be/TxQQp8XxpuM',
+    'https://youtu.be/c-72NQWwkdw',
+    'https://youtu.be/MksVN4RILC0',
     'https://youtu.be/gI8KxABjh_0',
     'https://youtu.be/4OO848cz2G8',
     'https://youtu.be/ySzbgdTEjlA',
   ];
   List<String> nameVideo = [
-    'Галилео. Как делают съедобную бумагу?',
-    'Галилео. Почему апельсин состоит из долек?',
-    'Галилео. Кто и зачем топит топлёное молоко?',
+    'Катя и Эф. Куда-угодно-дверь — Адрес сказок',
+    'Четверо в Кубе — Готово, шеф!',
+    'Ми-ми-мишки - Лунные приключения',
     'Тренер - Смешарики',
     'Психолог - Смешарики',
     'На память - Смешарики',
