@@ -9,7 +9,7 @@ import 'package:world_of_knowledge/screens/home_screen.dart';
 import 'package:world_of_knowledge/screens/music_screen.dart';
 import 'package:world_of_knowledge/screens/reading_screen.dart';
 import 'package:world_of_knowledge/screens/setting_screen.dart';
-import 'package:world_of_knowledge/screens/story/strory_screen.dart';
+import 'package:world_of_knowledge/screens/story_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:markdown_viewer/markdown_viewer.dart';
 import 'package:world_of_knowledge/enums/planets.dart';
 import 'package:world_of_knowledge/generated/assets.dart';
 import 'package:world_of_knowledge/quiz/models/story.dart';
 import 'package:world_of_knowledge/widgets/button.dart';
-import 'package:world_of_knowledge/widgets/markdown_text.dart';
 
 class StoryScreen extends StatelessWidget {
   const StoryScreen({Key? key, required this.storyModel}) : super(key: key);
@@ -67,3 +67,27 @@ class StoryScreen extends StatelessWidget {
     );
   }
 }
+
+class MarkdownText extends StatelessWidget {
+  MarkdownText({super.key, required data, this.onTapLink}) {
+    _data = data;
+  }
+
+  late final String? _data;
+  final void Function(String? href, String? title)? onTapLink;
+
+  @override
+  Widget build(BuildContext context) {
+    return ScrollConfiguration(
+      behavior: const MaterialScrollBehavior().copyWith(overscroll: false),
+      child: MarkdownViewer(
+        _data ?? '',
+        styleSheet: const MarkdownStyle(textStyle: TextStyle(fontSize: 16)),
+        onTapLink: onTapLink,
+      ),
+    );
+  }
+}
+
+// https://github.github.com/gfm/
+// https://markdown-it.github.io/
