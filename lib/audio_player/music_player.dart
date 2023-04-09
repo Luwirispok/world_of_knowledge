@@ -8,6 +8,7 @@ class MusicPlayer {
   static void playMusic(String musicAsset) async {
     await player.setSource(AssetSource(musicAsset));
     await player.resume();
+    await player.setVolume(0.5);
     player.onPlayerComplete.listen((_) async {
       await player.setSource(AssetSource(musicAsset));
       await player.resume();

@@ -15,7 +15,7 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   final PlanetsEnum _planetsEnum = PlanetsEnum.drawingPlanet;
 
-  double volume = 0.5;
+  int volume = 50;
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +40,15 @@ class _SettingScreenState extends State<SettingScreen> {
                       width: 60,
                     ),
                     onTap: () {
-                      volume -= 0.1;
-                      MusicPlayer.changeVolume(volume);
+                      volume -= volume == 0 ? 0 : 10;
+                      MusicPlayer.changeVolume(volume / 100.0);
                       setState(() {
 
                       });
                     },
                   ),
                   const SizedBox(width: 20),
-                  // Text('${volume * 10} %', style: TextStyle(color: Colors.white, fontSize: 25),),
+                  Text('${volume} %', style: const TextStyle(color: Colors.white, fontSize: 30),),
                   const SizedBox(width: 20),
                   ButtonWidget(
                     child: SvgPicture.asset(
@@ -56,8 +56,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       width: 60,
                     ),
                     onTap: () {
-                      volume += 0.1;
-                      MusicPlayer.changeVolume(volume);
+                      volume += volume == 100 ? 0 : 10;
+                      MusicPlayer.changeVolume(volume / 100.0);
                       setState(() {
 
                       });
