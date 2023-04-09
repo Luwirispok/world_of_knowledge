@@ -1,12 +1,17 @@
 import 'package:audioplayers/audioplayers.dart';
 
 class MusicPlayer {
-
   static final AudioPlayer player = AudioPlayer();
+
+
 
   static void playMusic(String musicAsset) async {
     await player.setSource(AssetSource(musicAsset));
     await player.resume();
+    player.onPlayerComplete.listen((_) async {
+      await player.setSource(AssetSource(musicAsset));
+      await player.resume();
+    });
     print('Запуск $musicAsset');
   }
 
@@ -19,6 +24,12 @@ class MusicPlayer {
   static void stopMusic() async {
     try {
       await player.stop();
+    } catch (e) {}
+  }
+
+  static void resumeMusic() async {
+    try {
+      await player.resume();
     } catch (e) {}
   }
 

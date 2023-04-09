@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:world_of_knowledge/audio_player/music_player.dart';
 import 'package:world_of_knowledge/data/provider/data_transfer_provider.dart';
 import 'package:world_of_knowledge/data/provider/model.dart';
 import 'package:world_of_knowledge/data/provider/person_data_provider.dart';
@@ -25,17 +26,49 @@ void main() async {
   SystemChrome.setPreferredOrientations(
     [DeviceOrientation.landscapeRight, DeviceOrientation.landscapeLeft],
   );
+
   sharedPreferences = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 
 late final SharedPreferences sharedPreferences;
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
-////////////
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+////////////
+  final List<AppLifecycleState> _stateHistoryList = <AppLifecycleState>[];
   // This widget is the root of your application.
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    if (WidgetsBinding.instance.lifecycleState != null) {
+      _stateHistoryList.add(WidgetsBinding.instance.lifecycleState!);
+    }
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if(state == AppLifecycleState.paused){
+      MusicPlayer.pauseMusic();
+    } else {
+      MusicPlayer.resumeMusic();
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -78,7 +111,7 @@ class MyApp extends StatelessWidget {
           // '/reading_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
           '/drawing_screen': (context) => const DrawingScreen(),
           '/video_screen': (context) => VideoScreen(),
-          '/setting_screen': (context) => const SettingScreen(),
+          '/setting_screen': (context) => SettingScreen(),
           '/story_screen': (context) {
             final arguments =
                 (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
