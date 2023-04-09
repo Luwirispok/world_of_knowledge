@@ -6,11 +6,15 @@ import 'package:world_of_knowledge/data/provider/model.dart';
 import 'package:world_of_knowledge/quiz/getQuestions/main_widget.dart';
 import 'package:world_of_knowledge/screens/drawing_screen.dart';
 import 'package:world_of_knowledge/screens/grammar_screen.dart';
+import 'package:world_of_knowledge/screens/history_screen.dart';
 import 'package:world_of_knowledge/screens/home_screen.dart';
 import 'package:world_of_knowledge/screens/math_screen.dart';
 import 'package:world_of_knowledge/screens/music_screen.dart';
 import 'package:world_of_knowledge/screens/reading_screen.dart';
 import 'package:world_of_knowledge/screens/setting_screen.dart';
+import 'package:world_of_knowledge/screens/third_screen.dart';
+import 'package:world_of_knowledge/screens/welcome_screen.dart';
+import 'package:world_of_knowledge/screens/who_are_u_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +35,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<DataModelProvider>(
             create: (_) => DataModelProvider()),
+        ChangeNotifierProvider<PersonDataProvider>(
+            create: (_) => PersonDataProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -44,7 +50,11 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
-          '/': (context) => const HomeScreen(),
+          '/': (context) => WelcomeScreen(),
+          '/second_screen': (context) => WhoAreUScreen(),
+          '/third_screen': (context) => ThirdScreen(),
+          '/history_screen': (context) => HistoryScreen(),
+          '/home_screen': (context) => const HomeScreen(),
           '/math_screen': (context) => MainWidget(),
           '/grammar_screen': (context) => MainWidget(),
           '/reading_screen': (context) => MainWidget(),

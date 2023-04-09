@@ -8,10 +8,13 @@ class Assets {
   static const String backgroundCosmos4 = 'images/background/cosmos_4.png';
   static const String backgroundCosmos5 = 'images/background/cosmos_5.png';
   static const String buttonsCancelButton = 'images/buttons/cancel_button.svg';
-  static const String buttonsMusicOffButton = 'images/buttons/music_off_button.svg';
-  static const String buttonsMusicOnButton = 'images/buttons/music_on_button.svg';
+  static const String buttonsMusicOffButton =
+      'images/buttons/music_off_button.svg';
+  static const String buttonsMusicOnButton =
+      'images/buttons/music_on_button.svg';
   static const String buttonsResetButton = 'images/buttons/reset_button.svg';
-  static const String buttonsSettingButton = 'images/buttons/setting_button.svg';
+  static const String buttonsSettingButton =
+      'images/buttons/setting_button.svg';
   static const String buttonsStartButton = 'images/buttons/start_button.svg';
   static const String planets1 = 'images/planets/1.svg';
   static const String planets2 = 'images/planets/2.svg';
@@ -21,5 +24,12 @@ class Assets {
   static const String planets6 = 'images/planets/6.svg';
   static const String planets7 = 'images/planets/7.svg';
   static const String planets8 = 'images/planets/8.svg';
-
+  static const String first_sc = 'images/planets/first_screen.svg';
+  static const String second_sc = 'images/planets/second_screen.svg';
+  static const String person_man_0 = 'images/planets/persons/man_0.svg';
+  static const String person_man_1 = 'images/planets/persons/man_1.svg';
+  static const String person_man_2 = 'images/planets/persons/man_2.svg';
+  static const String person_woman_0 = 'images/planets/persons/woman_0.svg';
+  static const String person_woman_1 = 'images/planets/persons/woman_1.svg';
+  static const String person_woman_2 = 'images/planets/persons/woman_2.svg';
 }

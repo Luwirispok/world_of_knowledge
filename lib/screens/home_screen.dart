@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:world_of_knowledge/enums/planets.dart';
 import 'package:world_of_knowledge/generated/assets.dart';
 import 'package:world_of_knowledge/widgets/button.dart';

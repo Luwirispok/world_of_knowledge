@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:world_of_knowledge/core/app_color.dart';
 import 'package:world_of_knowledge/data/provider/model.dart';
 
@@ -12,20 +13,57 @@ import 'package:world_of_knowledge/quiz/getQuestions/question_widget.dart';
 import 'package:world_of_knowledge/quiz/models/model.dart';
 
 class MainWidget extends StatefulWidget {
-  MainWidget({super.key});
+  const MainWidget({super.key});
 
   @override
   State<MainWidget> createState() => _MainWidgetState();
 }
 
 class _MainWidgetState extends State<MainWidget> {
-  List<QuizQuestion>? get data => context.read<DataModelProvider>().data;
+  String? name;
+
+  List<QuizQuestion>? get data {
+    return [
+      QuizQuestion(
+        title: 'Кто больше, мышь или слон?',
+        options: {
+          'Мышь': false,
+          'Слон': true,
+          'Они одинакового размера': false,
+          'Жираф': false,
+        },
+      )
+    ];
+  }
+
+  // List<QuizQuestion>? get data => context.read<DataModelProvider>().data;
   String? get personalTypeName =>
       context.read<DataModelProvider>().personalTypeName;
   String? get pathBackGroundImage =>
       context.read<DataModelProvider>().pathBackGroundImage;
   String? get planetPathPhoto =>
       context.read<DataModelProvider>().planetPathPhoto;
+  @override
+  void initState() {
+    _getSharedPreferencesSettings();
+
+    super.initState();
+  }
+
+  void _getSharedPreferencesSettings() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? sex = prefs.getBool('sex');
+    int? index = prefs.getInt('index');
+    if (sex!) {
+      name = 'man_${index.toString()}';
+      setState(() {});
+      print(name);
+    } else {
+      name = 'woman_${index.toString()}';
+      setState(() {});
+    }
+    print(name);
+  }
 
   void checkAnswerAndUpdate(bool value) {
     if (isAlreadySelected) {
@@ -118,7 +156,7 @@ class _MainWidgetState extends State<MainWidget> {
                   left: 0,
                   bottom: 30,
                   child: SvgPicture.asset(
-                    'images/planets/persons/man_$personalTypeName.svg',
+                    'images/planets/persons/$name.svg',
                     width: 150,
                   ),
                 ),
