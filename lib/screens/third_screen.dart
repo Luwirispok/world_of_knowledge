@@ -56,6 +56,19 @@ class ThirdScreen extends StatelessWidget {
             ],
           ),
         ]),
+        Positioned(
+          top: 20,
+          left: 5,
+          child: ButtonWidget(
+            onTap: () async {
+              Navigator.of(context).pop();
+            },
+            child: SvgPicture.asset(
+              Assets.buttonsCancelButton,
+              width: MediaQuery.of(context).size.width * 0.06,
+            ),
+          ),
+        ),
       ]),
     );
   }

@@ -19,8 +19,6 @@ class ReadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _listStoryModel;
-    print(_listStoryModel);
     return Scaffold(
       body: SafeArea(
         child: Stack(
