@@ -10,7 +10,7 @@ enum PlanetsEnum {
   mathPlanet,
   grammarPlanet,
   readingPlanet,
-  musicPlanet,
+  videoPlanet,
   drawingPlanet,
 }
 
@@ -39,7 +39,7 @@ extension PlanetEnumExtension on PlanetsEnum {
         return _planetAssets[1];
       case PlanetsEnum.readingPlanet:
         return _planetAssets[2];
-      case PlanetsEnum.musicPlanet:
+      case PlanetsEnum.videoPlanet:
         return _planetAssets[3];
       case PlanetsEnum.drawingPlanet:
         return _planetAssets[4];
@@ -54,8 +54,8 @@ extension PlanetEnumExtension on PlanetsEnum {
         return 'Грамматика';
       case PlanetsEnum.readingPlanet:
         return 'Чтение';
-      case PlanetsEnum.musicPlanet:
-        return 'Музыка';
+      case PlanetsEnum.videoPlanet:
+        return 'Познавательные видео';
       case PlanetsEnum.drawingPlanet:
         return 'Рисование';
     }
@@ -69,7 +69,7 @@ extension PlanetEnumExtension on PlanetsEnum {
         return _backgroundAsset[1];
       case PlanetsEnum.readingPlanet:
         return _backgroundAsset[2];
-      case PlanetsEnum.musicPlanet:
+      case PlanetsEnum.videoPlanet:
         return _backgroundAsset[3];
       case PlanetsEnum.drawingPlanet:
         return _backgroundAsset[4];
@@ -99,10 +99,10 @@ extension PlanetEnumExtension on PlanetsEnum {
           //     DataTransferProvider().listStoryModel[value];
           Navigator.pushNamed(context, '/reading_screen');
         };
-      // case PlanetsEnum.musicPlanet:
-      //   return () {
-      //     Navigator.pushNamed(context, '/music_screen');
-      //   };
+      case PlanetsEnum.videoPlanet:
+        return () {
+          Navigator.pushNamed(context, '/video_screen');
+        };
       // case PlanetsEnum.drawingPlanet:
       //   return () {
       //     Navigator.pushNamed(context, '/drawing_screen');

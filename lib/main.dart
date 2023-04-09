@@ -10,12 +10,12 @@ import 'package:world_of_knowledge/quiz/getQuestions/main_widget.dart';
 import 'package:world_of_knowledge/screens/drawing_screen.dart';
 import 'package:world_of_knowledge/screens/history_screen.dart';
 import 'package:world_of_knowledge/screens/home_screen.dart';
-import 'package:world_of_knowledge/screens/music_screen.dart';
 import 'package:world_of_knowledge/screens/reading_screen.dart';
 import 'package:world_of_knowledge/screens/setting_screen.dart';
 import 'package:world_of_knowledge/screens/splash_screen.dart';
 import 'package:world_of_knowledge/screens/story_screen.dart';
 import 'package:world_of_knowledge/screens/third_screen.dart';
+import 'package:world_of_knowledge/screens/video_screen.dart';
 import 'package:world_of_knowledge/screens/welcome_screen.dart';
 import 'package:world_of_knowledge/screens/who_are_u_screen.dart';
 
@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
               ),
           // '/reading_screen': (context) => MainWidget(sharedPreferences: sharedPreferences),
           '/drawing_screen': (context) => const DrawingScreen(),
-          '/music_screen': (context) => const MusicScreen(),
+          '/video_screen': (context) => VideoScreen(),
           '/setting_screen': (context) => const SettingScreen(),
           '/story_screen': (context) {
             final arguments =
