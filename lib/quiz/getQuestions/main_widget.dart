@@ -19,21 +19,7 @@ class MainWidget extends StatefulWidget {
 class _MainWidgetState extends State<MainWidget> {
   String? name;
 
-  List<QuizQuestion>? get data {
-    return [
-      QuizQuestion(
-        title: 'Кто больше, мышь или слон?',
-        options: {
-          'Мышь': false,
-          'Слон': true,
-          'Они одинакового размера': false,
-          'Жираф': false,
-        },
-      )
-    ];
-  }
-
-  // List<QuizQuestion>? get data => context.read<DataModelProvider>().data;
+  List<QuizQuestion>? get data => context.read<DataModelProvider>().data;
   String? get personalTypeName =>
       context.read<DataModelProvider>().personalTypeName;
   String? get pathBackGroundImage =>

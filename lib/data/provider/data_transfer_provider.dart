@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:world_of_knowledge/models/story_model.dart';
+import 'package:world_of_knowledge/quiz/models/model.dart';
 
 class DataTransferProvider extends ChangeNotifier {
   StoryModel? storyModel;
@@ -26,6 +27,344 @@ class DataTransferProvider extends ChangeNotifier {
 
 Девушка поняла, что обучение и учеба могут сделать ее сильнее и помочь преодолеть любое препятствие. С тех пор она всегда стремилась узнать больше и стать еще сильнее.
 ''';
+
+  List<QuizQuestion> firstList = [
+    QuizQuestion(
+      title: 'Какова форма сердца?',
+      options: {
+        'Круг': false,
+        'Треугольник': false,
+        'Сердце': true,
+        'Квадрат': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Сколько сторон у треугольника?',
+      options: {
+        '4': false,
+        '3': true,
+        '5': false,
+        '6': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое число предшествует пяти?',
+      options: {
+        '4': true,
+        '5': false,
+        '6': false,
+        '7': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Сколько пальцев у вас на обеих руках вместе?',
+      options: {
+        '8': false,
+        '12': false,
+        '10': true,
+        '14': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Как называется фигура, у которой восемь сторон?',
+      options: {
+        'Восьмиугольник': true,
+        'Шестиугольник': false,
+        'Пентагон': false,
+        'Семиугольник': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое число больше, десять или пять?',
+      options: {
+        'Пять': false,
+        'Десять': true,
+        'Они равны': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Сколько сторон у пятиугольника?',
+      options: {
+        '4': false,
+        '5': true,
+        '6': false,
+        '7': false,
+      },
+    ),
+  ];
+  List<QuizQuestion> secondList = [
+    QuizQuestion(
+      title:
+          'Если у вас есть одно яблоко, и вы получите еще два, сколько яблок у вас сейчас?',
+      options: {
+        '1': false,
+        '2': false,
+        '3': true,
+        '4': false,
+      },
+    ),
+    QuizQuestion(
+      title:
+          'Как называется фигура, у которой четыре равные стороны и четыре равных угла?',
+      options: {
+        'Прямоугольник': false,
+        'Квадрат': true,
+        'Ромб': false,
+        'Трапеция': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое число идет после девяти?',
+      options: {
+        '8': false,
+        '10': true,
+        '11': false,
+        '12': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Сколько углов у круга?',
+      options: {
+        '0': true,
+        '1': false,
+        '2': false,
+        '4': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Как называется фигура, у которой три стороны?',
+      options: {
+        'Прямоугольник': false,
+        'Квадрат': false,
+        'Ромб': false,
+        'Треугольник': true,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое число меньше, четыре или восемь?',
+      options: {
+        'Четыре': true,
+        'Восемь': false,
+        'Они равны': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Сколько дней в году?',
+      options: {
+        '364': false,
+        '365': true,
+        '366': false,
+        '367': false,
+      },
+    ),
+    QuizQuestion(
+      title:
+          'Если у вас есть два воздушных шара и вы получаете еще один, сколько у вас сейчас воздушных шаров?',
+      options: {
+        '1': false,
+        '2': false,
+        '3': true,
+        '4': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Как называется фигура, похожая на бриллиант?',
+      options: {
+        'Ромб': true,
+        'Квадрат': false,
+        'Прямоугольник': false,
+        'Пентагон': false,
+      },
+    ),
+  ];
+  List<QuizQuestion> thirdList = [
+    QuizQuestion(
+      title: 'Какая первая буква в слове "яблоко"?',
+      options: {
+        'a': false,
+        'b': false,
+        'c': false,
+        'd': false,
+        'в': true,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово рифмуется со словом "кошка"?',
+      options: {
+        'собака': false,
+        'летучая мышь': true,
+        'рыба': false,
+        'птица': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Сколько букв в слове "книга"?',
+      options: {
+        '3': false,
+        '4': true,
+        '5': false,
+        '6': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово означает противоположность слову "большой"?',
+      options: {
+        'маленький': true,
+        'высокий': false,
+        'короткий': false,
+        'длинный': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какая последняя буква в слове "лягушка"?',
+      options: {
+        'g': false,
+        'р': false,
+        'о': false,
+        'f': false,
+        'а': true,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово начинается с того же звука, что и слово "солнце"?',
+      options: {
+        'луна': false,
+        'бег': true,
+        'веселье': false,
+        'нет': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово означает противоположность слову "счастливый"?',
+      options: {
+        'грустный': true,
+        'глупый': false,
+        'смешной': false,
+        'серьезный': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какая средняя буква в слове "кот"?',
+      options: {
+        'a': true,
+        'т': false,
+        'с': false,
+        'ни одна из вышеперечисленных': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово означает противоположность слову "холодный"?',
+      options: {
+        'горячий': true,
+        'теплый': false,
+        'морозный': false,
+        'прохладный': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово рифмуется со словом "шляпа"?',
+      options: {
+        'коврик': false,
+        'карта': false,
+        'пат': false,
+        'кран': false,
+        'в': true,
+      },
+    )
+  ];
+
+  List<QuizQuestion> fourList = [
+    QuizQuestion(
+      title: 'Какая первая буква в слове "автомобиль"?',
+      options: {
+        'a': false,
+        'b': false,
+        'c': false,
+        'в': true,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово означает то же самое, что и "счастливый"?',
+      options: {
+        'сумасшедший': false,
+        'сердитый': false,
+        'грустный': false,
+        'радостный': true,
+      },
+    ),
+    QuizQuestion(
+      title: 'Сколько букв в слове "мяч"?',
+      options: {
+        '4': true,
+        '5': false,
+        '6': false,
+        '7': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какая последняя буква в слове "утка"?',
+      options: {
+        'к': false,
+        'в': false,
+        'г': false,
+        'u': true,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово означает противоположность слову "хороший"?',
+      options: {
+        'плохой': true,
+        'хороший': false,
+        'добрый': false,
+        'счастливый': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какая средняя буква в слове "питомец"?',
+      options: {
+        'е': false,
+        'п': false,
+        'т': true,
+        'ни одна из вышеперечисленных': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово означает то же самое, что и "грустный"?',
+      options: {
+        'счастливый': false,
+        'сердитый': false,
+        'расстроенный': true,
+        'удивленный': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Сколько букв в слове "собака"?',
+      options: {
+        '2': false,
+        '3': true,
+        '4': false,
+        '5': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какая первая буква в слове "банан"?',
+      options: {
+        'a': true,
+        'b': false,
+        'c': false,
+        'd': false,
+      },
+    ),
+    QuizQuestion(
+      title: 'Какое слово рифмуется со словом "свинья"?',
+      options: {
+        'большой': false,
+        'копать': true,
+        'парик': false,
+        'гиг': false,
+      },
+    ),
+  ];
 
   List<StoryModel> listStoryModel = [
     StoryModel(

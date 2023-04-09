@@ -86,7 +86,7 @@ extension PlanetEnumExtension on PlanetsEnum {
         };
       case PlanetsEnum.grammarPlanet:
         return () {
-          _getProviderSettings(context, this);
+          _getProviderSettingForGrammary(context, this);
           Navigator.pushNamed(context, '/grammar_screen');
         };
       case PlanetsEnum.readingPlanet:
@@ -149,15 +149,37 @@ void _getProviderSettings(
 
   context.read<DataModelProvider>().personalTypeName =
       planetsEnum.index.toString();
-  context.read<DataModelProvider>().data = [
-    QuizQuestion(
-      title: 'Какое число идет после 2?',
-      options: {
-        '1': false,
-        '3': true,
-        '2': false,
-        '5': false,
-      },
-    ),
+  List<List<QuizQuestion>> name = [
+    context.read<DataTransferProvider>().firstList,
+    context.read<DataTransferProvider>().secondList
   ];
+  var random = Random();
+  var min = 1;
+  var max = 2;
+  var randomNumber = min + random.nextInt(max - min);
+
+  context.read<DataModelProvider>().data = name[randomNumber];
+}
+
+void _getProviderSettingForGrammary(
+  BuildContext context,
+  PlanetsEnum planetsEnum,
+) {
+  context.read<DataModelProvider>().pathBackGroundImage =
+      planetsEnum.index.toString();
+  context.read<DataModelProvider>().planetPathPhoto =
+      planetsEnum.index.toString();
+
+  context.read<DataModelProvider>().personalTypeName =
+      planetsEnum.index.toString();
+  List<List<QuizQuestion>> name = [
+    context.read<DataTransferProvider>().thirdList,
+    context.read<DataTransferProvider>().fourList
+  ];
+  var random = Random();
+  var min = 1;
+  var max = 2;
+  var randomNumber = min + random.nextInt(max - min);
+
+  context.read<DataModelProvider>().data = name[randomNumber];
 }
