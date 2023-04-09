@@ -5,9 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:world_of_knowledge/data/provider/model.dart';
 import 'package:world_of_knowledge/quiz/getQuestions/main_widget.dart';
 import 'package:world_of_knowledge/screens/drawing_screen.dart';
-import 'package:world_of_knowledge/screens/grammar_screen.dart';
 import 'package:world_of_knowledge/screens/home_screen.dart';
-import 'package:world_of_knowledge/screens/math_screen.dart';
 import 'package:world_of_knowledge/screens/music_screen.dart';
 import 'package:world_of_knowledge/screens/reading_screen.dart';
 import 'package:world_of_knowledge/screens/setting_screen.dart';
@@ -48,12 +46,16 @@ class MyApp extends StatelessWidget {
           '/': (context) => const HomeScreen(),
           '/math_screen': (context) => const MainWidget(),
           '/grammar_screen': (context) => const MainWidget(),
-          '/reading_screen': (context) => const ReadingScreen(),
+          '/reading_screen': (context) => ReadingScreen(),
           '/drawing_screen': (context) => const DrawingScreen(),
           '/music_screen': (context) => const MusicScreen(),
           '/setting_screen': (context) => const SettingScreen(),
-          '/story_screen': (context) => const StoryScreen(),
-
+          '/story_screen': (context) {
+            final arguments = (ModalRoute.of(context)?.settings.arguments ?? {}) as Map;
+            return StoryScreen(
+              storyModel: arguments['story'],
+            );
+          },
         },
         initialRoute: '/',
       ),

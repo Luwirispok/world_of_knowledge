@@ -3,15 +3,17 @@ import 'package:flutter_scale_tap/flutter_scale_tap.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:world_of_knowledge/enums/planets.dart';
 import 'package:world_of_knowledge/generated/assets.dart';
+import 'package:world_of_knowledge/quiz/models/story.dart';
 import 'package:world_of_knowledge/widgets/button.dart';
 
 class ReadingScreen extends StatelessWidget {
-  const ReadingScreen({Key? key}) : super(key: key);
+  ReadingScreen({Key? key}) : super(key: key);
 
   //TODO: получать данные планеты через конструктор или провайдер
   final PlanetsEnum _planetsEnum = PlanetsEnum.readingPlanet;
 
-  //TODO: сделать модель для сказки, экран с самой сказкой и переход на вопросы (Мику будет нужен индекс сказки)
+  final List<StoryModel> _listStoryModel = listStoryModel;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,7 @@ class ReadingScreen extends StatelessWidget {
               child: GridView.builder(
                 padding: const EdgeInsets.only(top: 100, left: 20, right: 20, bottom: 20),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
+                  crossAxisCount: 2,
                   childAspectRatio: 2,
                   crossAxisSpacing: 30,
                   mainAxisSpacing: 30,
@@ -37,20 +39,46 @@ class ReadingScreen extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return ScaleTap(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/story_screen');
+                      Navigator.pushNamed(context, '/story_screen',
+                          arguments: <String, StoryModel>{'story': _listStoryModel[index]});
                     },
                     child: Container(
                       alignment: Alignment.center,
-                      width: 100,
-                      height: 60,
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.8),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: const Text(
-                        //TODO: title модельки сказки
-                        'Сказка',
-                        style: TextStyle(fontSize: 25),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.15,
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.horizontal(left: Radius.circular(10)),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                  _listStoryModel[index].imageCover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _listStoryModel[index].name,
+                                    style: const TextStyle(fontSize: 20),
+                                  ),
+                                  Text(_listStoryModel[index].author),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );
