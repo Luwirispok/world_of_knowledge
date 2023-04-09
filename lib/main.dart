@@ -13,6 +13,7 @@ import 'package:world_of_knowledge/screens/home_screen.dart';
 import 'package:world_of_knowledge/screens/music_screen.dart';
 import 'package:world_of_knowledge/screens/reading_screen.dart';
 import 'package:world_of_knowledge/screens/setting_screen.dart';
+import 'package:world_of_knowledge/screens/splash_screen.dart';
 import 'package:world_of_knowledge/screens/story_screen.dart';
 import 'package:world_of_knowledge/screens/third_screen.dart';
 import 'package:world_of_knowledge/screens/welcome_screen.dart';
@@ -58,7 +59,8 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
-          '/': (context) => WelcomeScreen(),
+          '/': (context) => SplashScreen(),
+          '/welcome_screen': (context) => WelcomeScreen(),
           '/second_screen': (context) => WhoAreUScreen(),
           '/third_screen': (context) => ThirdScreen(),
           '/history_screen': (context) => HistoryScreen(),

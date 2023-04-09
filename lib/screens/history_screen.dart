@@ -44,8 +44,11 @@ class HistoryScreen extends StatelessWidget {
           bottom: 0,
           right: 0,
           child: ButtonWidget(
-            onTap: () {
+            onTap: () async {
               _setFirstSetting(context);
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+              prefs.setBool('success', true);
               Navigator.pushNamed(context, '/home_screen');
             },
             child: SvgPicture.asset(
